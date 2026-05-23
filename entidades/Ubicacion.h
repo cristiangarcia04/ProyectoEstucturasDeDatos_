@@ -4,11 +4,23 @@
 
 #ifndef UBICACION_H
 #define UBICACION_H
+#include <string>
+using namespace std;
 
 
+struct Ubicacion {
+    string tipo;
+    int fila;
+    int columna;
+    int visitado;
+    char simbolo;
 
-class Ubicacion {
+    Ubicacion* arriba;
+    Ubicacion* abajo;
+    Ubicacion* izquierda;
+    Ubicacion* derecha;
 
+    Ubicacion(int f, int c);
 };
 
 
