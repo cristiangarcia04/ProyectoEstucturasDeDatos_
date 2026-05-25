@@ -1,11 +1,8 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #ifndef PISTA_H
 #define PISTA_H
-using namespace std;
+
 #include <string>
+using namespace std;
 
 class Pista {
 public:
@@ -15,10 +12,9 @@ public:
     bool recogido;
     char simbolo;
 
+    Pista();
     Pista(string t, int f, int c);
-    string getNombre();
+    string getNombre() const;
 };
 
-
-
-#endif //PISTA_H
+#endif

@@ -1,16 +1,16 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #ifndef ACUSACION_H
 #define ACUSACION_H
 
-
+#include <string>
+#include <unordered_map>
+#include "../entidades/Sospechoso.h"
+using namespace std;
 
 class Acusacion {
-
+public:
+    static bool acusar(const string& nombreAcusado,
+                       unordered_map<string, Sospechoso>& tablaSospechosos,
+                       const string& culpableReal);
 };
 
-
-
-#endif //ACUSACION_H
+#endif

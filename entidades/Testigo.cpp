@@ -1,7 +1,3 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #include "Testigo.h"
 #include <iostream>
 using namespace std;
@@ -14,13 +10,12 @@ Testigo::Testigo() {
 }
 
 Testigo::Testigo(string declaracion, int fila, int columna) {
-    declaracion = declaracion;
-    fila = fila;
-    columna = columna;
+    this->declaracion = declaracion;
+    this->fila = fila;
+    this->columna = columna;
     encontrado = false;
 }
 
-void Testigo::mostrar() {
+void Testigo::mostrar() const {
     cout << "El testigo dice: " << declaracion << endl;
 }
-

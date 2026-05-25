@@ -1,7 +1,3 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #include "Sospechoso.h"
 #include <iostream>
 using namespace std;
@@ -12,30 +8,34 @@ Sospechoso::Sospechoso() {
 }
 
 Sospechoso::Sospechoso(string nombre, vector<string> atributos) {
-    nombre = nombre;
+    this->nombre = nombre;
+    this->atributos = atributos;
     culpable = false;
-    atributos = atributos;
 }
 
-void Sospechoso::revelar(int indice) {
-    if (indice > atributos.size()) {
-        revelados.push_back((atributos)[indice]);
-        indice++;
+bool Sospechoso::tieneAtributo(const string& atributo) const {
+    for (const string& actual : atributos) {
+        if (actual == atributo) return true;
     }
+    return false;
 }
 
-void Sospechoso::mostrar() {
-    cout << " " << nombre << " | atributos: ";
-    if (revelados.empty()) {
-        cout << "-";
-    } else {
-        for (int i = 0; i < revelados.size(); i++) {
-            cout << revelados[i];
-            if (i != revelados.size() - 1) cout << ", ";
+void Sospechoso::mostrarConRevelados(const vector<string>& atributosRevelados) const {
+    cout << "  " << nombre << " | atributos: ";
+    for (size_t i = 0; i < atributos.size(); i++) {
+        cout << atributos[i];
+        if (i + 1 < atributos.size()) cout << ", ";
+    }
+
+    cout << " | coincide con pistas: ";
+    bool alguno = false;
+    for (const string& atributo : atributosRevelados) {
+        if (tieneAtributo(atributo)) {
+            if (alguno) cout << ", ";
+            cout << atributo;
+            alguno = true;
         }
     }
+    if (!alguno) cout << "-";
     cout << endl;
 }
-
-
-

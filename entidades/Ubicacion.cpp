@@ -1,9 +1,4 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #include "Ubicacion.h"
-
 
 Ubicacion::Ubicacion(int f, int c) {
     fila = f;
@@ -11,6 +6,9 @@ Ubicacion::Ubicacion(int f, int c) {
     tipo = "libre";
     simbolo = 'o';
     visitado = false;
+    visible = false;
+    pista = nullptr;
+    testigo = nullptr;
     arriba = nullptr;
     abajo = nullptr;
     izquierda = nullptr;

@@ -1,3 +1,7 @@
-//
-// Created by garci on 18/05/2026.
-//
+#include "juego/Juego.h"
+
+int main() {
+    Juego juego;
+    juego.menuPrincipal();
+    return 0;
+}

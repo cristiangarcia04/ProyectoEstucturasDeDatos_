@@ -1,13 +1,8 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #ifndef TESTIGO_H
 #define TESTIGO_H
-#include <string>
-#include "Ubicacion.h"
-using namespace std;
 
+#include <string>
+using namespace std;
 
 class Testigo {
 public:
@@ -18,10 +13,7 @@ public:
 
     Testigo();
     Testigo(string declaracion, int fila, int columna);
-
-    void mostrar();
+    void mostrar() const;
 };
 
-
-
-#endif //TESTIGO_H
+#endif

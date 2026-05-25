@@ -1,7 +1,3 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #include "Detective.h"
 #include <iostream>
 using namespace std;

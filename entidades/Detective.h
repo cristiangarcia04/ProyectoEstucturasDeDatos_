@@ -1,9 +1,6 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #ifndef DETECTIVE_H
 #define DETECTIVE_H
+
 #include <string>
 #include "Ubicacion.h"
 using namespace std;
@@ -15,13 +12,12 @@ public:
     Ubicacion* posicionAct;
 
     Detective();
-    Detective(string nombre);
+    explicit Detective(string nombre);
 
+    void ubicar(Ubicacion* ubicacion);
     void mover(Ubicacion* nueva);
-    void aumentarPuntaje();
-    void mostrarPuntaje();
+    void aumentarPuntaje(int cantidad = 1);
+    void mostrarPuntaje() const;
 };
 
-
-
-#endif //DETECTIVE_H
+#endif

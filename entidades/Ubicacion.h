@@ -1,19 +1,21 @@
-//
-// Created by garci on 18/05/2026.
-//
-
 #ifndef UBICACION_H
 #define UBICACION_H
+
 #include <string>
 using namespace std;
 
+struct Pista;
+struct Testigo;
 
 struct Ubicacion {
-    string tipo;
+    string tipo;          // borde, libre, callejon, pista, testigo
     int fila;
     int columna;
-    int visitado;
-    char simbolo;
+    bool visitado;
+    bool visible;
+    char simbolo;         // simbolo real del contenido
+    Pista* pista;
+    Testigo* testigo;
 
     Ubicacion* arriba;
     Ubicacion* abajo;
@@ -23,6 +25,4 @@ struct Ubicacion {
     Ubicacion(int f, int c);
 };
 
-
-
-#endif //UBICACION_H
+#endif
