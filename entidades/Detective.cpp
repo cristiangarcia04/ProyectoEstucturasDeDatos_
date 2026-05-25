@@ -13,23 +13,32 @@ Detective::Detective() {
 }
 
 Detective::Detective(string nombre) {
-    nombre = nombre;
+    this->nombre = nombre;
     puntaje = 0;
     posicionAct = nullptr;
 }
 
-void Detective::mover(Ubicacion *nueva) {
-    posicionAct->simbolo = ' ';
+void Detective::ubicar(Ubicacion* ubicacion) {
+    posicionAct = ubicacion;
+    if (posicionAct != nullptr) {
+        posicionAct->visitado = true;
+        posicionAct->visible = true;
+    }
+}
+
+void Detective::mover(Ubicacion* nueva) {
     posicionAct = nueva;
-    posicionAct->simbolo = 'D';
-    posicionAct->visitado = true;
+    if (posicionAct != nullptr) {
+        posicionAct->visitado = true;
+        posicionAct->visible = true;
+    }
 }
 
-void Detective::aumentarPuntaje() {
-    puntaje++;
+void Detective::aumentarPuntaje(int cantidad) {
+    puntaje += cantidad;
+    if (puntaje < 0) puntaje = 0;
 }
 
-void Detective::mostrarPuntaje() {
-    cout << nombre << "tu puntaje es: " << puntaje << endl;
+void Detective::mostrarPuntaje() const {
+    cout << nombre << ", tu puntaje actual es: " << puntaje << endl;
 }
-

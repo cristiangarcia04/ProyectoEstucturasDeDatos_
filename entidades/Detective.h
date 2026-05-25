@@ -8,7 +8,6 @@
 #include "Ubicacion.h"
 using namespace std;
 
-
 class Detective {
 public:
     string nombre;
