@@ -10,8 +10,8 @@
 #include <string>
 using namespace std;
 
-const int FILAS = 11;
-const int COLUMNAS = 11;
+const int FILAS = 9;
+const int COLUMNAS = 9;
 
 const char BORDE = '#';
 const char VACIO = 'o';
