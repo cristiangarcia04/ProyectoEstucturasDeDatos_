@@ -27,7 +27,7 @@ void Juego::menuPrincipal() {
         cout << "\n========== EL CASO DEL DETECTIVE ==========" << endl;
         cout << "1. Jugar" << endl;
         cout << "2. Consultar mejor puntaje de un detective" << endl;
-        cout << "3. Ver ranking historico ABB" << endl;
+        cout << "3. Ver ranking historico" << endl;
         cout << "0. Salir" << endl;
         cout << "Opcion: ";
         cin >> opcion;
@@ -333,7 +333,7 @@ void Juego::revisarContenido(Ubicacion* ubicacion) {
 }
 
 void Juego::mostrarPilaPistas() const {
-    cout << "\n" << detective.nombre << ", mira las pistas que llevas (Pila):\n";
+    cout << "\n" << detective.nombre << ", mira las pistas que llevas:\n";
     if (pistasRecolectadas.empty()) {
         cout << "  La pila esta vacia.\n";
         return;
@@ -435,7 +435,7 @@ void Juego::teletransportarDetective() {
 }
 
 void Juego::mostrarSospechosos() const {
-    cout << "\n" << detective.nombre << ", sospechosos del caso (Tabla Hash):\n";
+    cout << "\n" << detective.nombre << ", sospechosos del caso:\n";
     cout << "Atributos confirmados del culpable: ";
     if (atributosRevelados.empty()) cout << "-";
     for (size_t i = 0; i < atributosRevelados.size(); i++) {
@@ -445,7 +445,7 @@ void Juego::mostrarSospechosos() const {
     cout << endl;
 
     for (const auto& par : sospechosos) {
-        cout << "Bucket hash " << (hash<string>{}(par.first) % 17) << " -> ";
+        cout << "Bucket " << (hash<string>{}(par.first) % 17) << " -> ";
         par.second.mostrarConRevelados(atributosRevelados);
     }
 }
@@ -458,7 +458,7 @@ void Juego::interrogarTestigo() {
 
     Testigo testigo = declaracionesPendientes.front();
     declaracionesPendientes.pop();
-    cout << "\nInterrogando al siguiente testigo de la Cola (FIFO)...\n";
+    cout << "\nInterrogando al siguiente testigo de la Cola...\n";
     testigo.mostrar();
     revelarAtributoCulpable();
 }
@@ -520,7 +520,7 @@ void Juego::consultarPuntaje() {
 }
 
 void Juego::mostrarRanking() {
-    cout << "\nRanking historico por ABB (menor puntaje a mayor):\n";
+    cout << "\nRanking historico (menor puntaje a mayor):\n";
     if (raizScore == nullptr) cout << "  No hay puntajes registrados.\n";
     else imprimirScores(raizScore);
 }
